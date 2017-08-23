@@ -1,13 +1,27 @@
 package mm.java.tests;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.jboss.netty.handler.codec.base64.Base64Encoder;
+import org.openqa.selenium.security.UserAndPassword;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
-import java.io.File;
+
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,10 +35,13 @@ public class RegistrationNoZpay {
     public void setUp() throws Exception {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-    }
-    
+            }
+
     @Test
-    public void RegistrationNoZpay() {
+    public void registrationNoZpay() {
+        //WebDriverWait wait = new WebDriverWait(driver, 10);
+        //Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        //alert.authenticateUsing(new UserAndPassword(moneyman, **password**));
         // to do http authorisation
         // 2) dual-layer test framework
         // 3) delegation + extension
